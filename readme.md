@@ -43,20 +43,21 @@ To receive data you have to send a "sub" message first.
 ```
 
 ### Sub request
-
+```
 {
   "sub": "market.btcusdt.kline.1min",
   "id": "id1"
 }
-
+```
 ### Sub response:
-
+```
 {
   "id": "id1",
   "status": "ok",
   "subbed": "market.btcusdt.kline.1min",
   "ts": 1489474081631
 }
+```
 After successfully subscribed, you will receive a response to confirm subscription
 
 Then, you will received messages when there is any update in the subcribed topics.
