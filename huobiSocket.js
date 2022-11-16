@@ -5,10 +5,8 @@ var socket = new WebSocket("wss://api.huobi.pro/ws")
 socket.binaryType="arraybuffer";
 //Sockete bağlandık.
 socket.onopen=function(){
-
     console.log("Connected")
-    
-    socket.send(market_ticker());
+    socket.send(market_depth());
 
 }
 
@@ -22,7 +20,6 @@ socket.onmessage=function(e){
       console.log(json);
     } 
 }
-
 function market_candlestick(){
       let data= JSON.stringify({
         sub: "market.ethbtc.kline.1min",
@@ -59,6 +56,29 @@ function market_ticker (){
 
       Parameter 	Data Type	Required	    Default 	        Description	                    Value Range
       symbol	     string	      true	          NA	      The trading symbol to query	        All supported trading symbol, e.g. btcusdt, bccbtc.Refer to /v1/common/symbols
+
+      */
+}
+function market_depth(){
+    let data= JSON.stringify({
+        sub: "market.btcusdt.depth.step0",
+        id:"id1"
+      })
+      return data
+
+         /*
       
+      Topic
+
+      market.$symbol.depth.$type
+
+      Request Parameters
+
+      Parameter       Data Type	      Required	    Default        Description	                                    Value Range
+
+      symbol	       string	       true	          NA	       Trading symbol	                                Refer to GET /v1/common/symbols
+
+      type	           string	       true	         step0	       Market depth aggregation level, details below	step0, step1, step2, step3, step4, step5
+
       */
 }
