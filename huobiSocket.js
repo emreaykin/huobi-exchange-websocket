@@ -8,7 +8,7 @@ socket.onopen=function(){
 
     console.log("Connected")
     
-    socket.send(market_candlestick());
+    socket.send(market_ticker());
 
 }
 
@@ -42,4 +42,23 @@ function market_candlestick(){
        
       */
       return data;
+}
+function market_ticker (){
+    let data= JSON.stringify({
+        sub: "market.btcusdt.ticker",
+      })
+      return data
+
+      /*
+      
+      Topic
+
+      market.$symbol.ticker
+
+      Request Parameters
+
+      Parameter 	Data Type	Required	    Default 	        Description	                    Value Range
+      symbol	     string	      true	          NA	      The trading symbol to query	        All supported trading symbol, e.g. btcusdt, bccbtc.Refer to /v1/common/symbols
+      
+      */
 }
