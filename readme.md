@@ -17,8 +17,8 @@ All return data of websocket Market APIs are compressed with GZIP so they need t
 #### Heartbeat and Connection
 
 ```
+$`\textcolor{red}{\text{After the server sent two consecutive heartbeat messages without receiving at least one matching "pong" response from a client, then right before server sends the next "ping" heartbeat, the server will be disconnected with the client server.}}`$ 
 
-<span style="color:red">After the server sent two consecutive heartbeat messages without receiving at least one matching "pong" response from a client, then right before server sends the next "ping" heartbeat, the server will be disconnected with the client server.</span>
 ```
 
 
